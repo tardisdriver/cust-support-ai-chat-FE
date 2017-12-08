@@ -1,0 +1,12 @@
+#service-check {
+    display: block;
+    border: 2px solid black;
+    padding: 5px;
+    margin-left: 270px;
+    margin-right: 270px;
+    text-align: center;
+}
+
+#svc-text {
+    display: block;
+}
