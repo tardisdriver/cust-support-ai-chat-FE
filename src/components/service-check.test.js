@@ -9,6 +9,9 @@ describe('<ServiceCheck />', () => {
     });
     it('should make request to the api on submit', () => {
         const callback = jest.fn();
+        callback.mockImplementation(serviceNumber => {
+            return Promise.resolve(null)
+        });
         const serviceNumber = 'ABC123';
         const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
         wrapper.find('input[type="text"]').instance().value = serviceNumber;
@@ -16,20 +19,26 @@ describe('<ServiceCheck />', () => {
         expect(callback).toHaveBeenCalledWith(serviceNumber);
     });
 
-    //});
-    //it('should take user to next page if service number exists', () => {
+    it('should not show the error message before submitting', () => {
+        const callback = jest.fn();
+        const serviceNumber = 'ABC123';
+        const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
+        const element = wrapper.find('.error-message');
+        expect(element).toHaveLength(0);
+    });
 
-    //});
-    it('should return error message if number does not exist', () => {
+    it('should return error message if number does not exist', async () => {
         const callback = jest.fn();
         const serviceNumber = 'ABC123';
         callback.mockImplementation(serviceNumber => {
-            Promise.resolve(null)
+            return Promise.resolve(null)
         });
         const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
         wrapper.find('input[type="text"]').instance().value = serviceNumber;
         wrapper.simulate('submit');
-        const element = wrapper.find('.errorMessage');
+        await Promise.resolve();
+        wrapper.update();
+        const element = wrapper.find('.error-message');
         expect(element).toHaveLength(1);
     });
 });
