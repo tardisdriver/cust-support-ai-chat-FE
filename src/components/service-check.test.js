@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import ServiceCheck from './service-check';
 
@@ -7,11 +7,15 @@ describe('<ServiceCheck />', () => {
     it('renders ServiceCheck without crashing', () => {
         shallow(<ServiceCheck />)
     });
-    //it('should call api when number is submitted', () => {
-        //const callback = jest.fn();
-        //const wrapper = mount(<ServiceCheck onSubmit={callback} />);
-        //wrapper.simulate('submit');
-        //expect()
+    it('should make request to the api on submit', () => {
+        const callback = jest.fn();
+        const serviceNumber = 'ABC123';
+        const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
+        wrapper.find('input[type="text"]').instance().value = serviceNumber;
+        wrapper.simulate('submit');
+        expect(callback).toHaveBeenCalledWith(serviceNumber);
+    });
+
     //});
     //it('should take user to next page if service number exists', () => {
 
