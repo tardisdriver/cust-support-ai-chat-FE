@@ -15,7 +15,7 @@ export default class ServiceCheck extends React.Component {
         this.props.submitServiceNumber(entry)
             .then((customer) => {
                 if (customer) {
-
+                    this.props.goToVerification();
                 } else {
                     this.setState({
                         isErrorMessage: true
