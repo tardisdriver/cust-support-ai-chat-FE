@@ -20,7 +20,16 @@ describe('<ServiceCheck />', () => {
     //it('should take user to next page if service number exists', () => {
 
     //});
-    //it('should return error message if number does not exist', () => {
-
-    //});
+    it('should return error message if number does not exist', () => {
+        const callback = jest.fn();
+        const serviceNumber = 'ABC123';
+        callback.mockImplementation(serviceNumber => {
+            Promise.resolve(null)
+        });
+        const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
+        wrapper.find('input[type="text"]').instance().value = serviceNumber;
+        wrapper.simulate('submit');
+        const element = wrapper.find('.errorMessage');
+        expect(element).toHaveLength(1);
+    });
 });
