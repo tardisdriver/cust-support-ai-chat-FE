@@ -41,4 +41,18 @@ describe('<ServiceCheck />', () => {
         const element = wrapper.find('.error-message');
         expect(element).toHaveLength(1);
     });
+
+    it('should call navigation function on success', async () => {
+        const callback = jest.fn();
+        const serviceNumber = 'ABC123';
+        callback.mockImplementation(serviceNumber => {
+            return Promise.resolve({})
+        });
+        const navCallback = jest.fn();
+        const wrapper = mount(<ServiceCheck goToVerification={navCallback} submitServiceNumber={callback} />);
+        wrapper.find('input[type="text"]').instance().value = serviceNumber;
+        wrapper.simulate('submit');
+        await Promise.resolve();
+        expect(navCallback).toHaveBeenCalled();
+    });
 });
