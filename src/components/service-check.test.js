@@ -13,7 +13,7 @@ describe('<ServiceCheck />', () => {
             return Promise.resolve(null)
         });
         const serviceNumber = 'ABC123';
-        const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
+        const wrapper = mount(<ServiceCheck isErrorMessage={false} submitServiceNumber={callback} />);
         wrapper.find('input[type="text"]').instance().value = serviceNumber;
         wrapper.simulate('submit');
         expect(callback).toHaveBeenCalledWith(serviceNumber);
@@ -21,38 +21,18 @@ describe('<ServiceCheck />', () => {
 
     it('should not show the error message before submitting', () => {
         const callback = jest.fn();
-        const serviceNumber = 'ABC123';
-        const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
+        const wrapper = mount(<ServiceCheck isErrorMessage={false} submitServiceNumber={callback} />);
         const element = wrapper.find('.error-message');
         expect(element).toHaveLength(0);
     });
 
-    it('should return error message if number does not exist', async () => {
+    it('should return error message if number does not exist', () => {
         const callback = jest.fn();
-        const serviceNumber = 'ABC123';
-        callback.mockImplementation(serviceNumber => {
-            return Promise.resolve(null)
-        });
-        const wrapper = mount(<ServiceCheck submitServiceNumber={callback} />);
-        wrapper.find('input[type="text"]').instance().value = serviceNumber;
-        wrapper.simulate('submit');
-        await Promise.resolve();
-        wrapper.update();
+        const wrapper = mount(<ServiceCheck isErrorMessage={true} submitServiceNumber={callback} />);
         const element = wrapper.find('.error-message');
         expect(element).toHaveLength(1);
-    });
+        // return Promise.resolve();
+        // wrapper.update();
 
-    it('should call navigation function on success', async () => {
-        const callback = jest.fn();
-        const serviceNumber = 'ABC123';
-        callback.mockImplementation(serviceNumber => {
-            return Promise.resolve({})
-        });
-        const navCallback = jest.fn();
-        const wrapper = mount(<ServiceCheck goToVerification={navCallback} submitServiceNumber={callback} />);
-        wrapper.find('input[type="text"]').instance().value = serviceNumber;
-        wrapper.simulate('submit');
-        await Promise.resolve();
-        expect(navCallback).toHaveBeenCalled();
     });
 });
