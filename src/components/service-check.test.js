@@ -31,8 +31,5 @@ describe('<ServiceCheck />', () => {
         const wrapper = mount(<ServiceCheck isErrorMessage={true} submitServiceNumber={callback} />);
         const element = wrapper.find('.error-message');
         expect(element).toHaveLength(1);
-        // return Promise.resolve();
-        // wrapper.update();
-
     });
 });
