@@ -1,4 +1,4 @@
-import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER } from '../constants';
+import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR } from '../constants';
 
 function checkingServiceNumber() {
     return {
@@ -19,6 +19,13 @@ function invalidServiceNumber() {
     }
 }
 
+function sendError(reason) {
+    return {
+        type: ERROR,
+        reason
+    }
+}
+
 export const submitServiceNumber = (api, number) => dispatch => {
     dispatch(checkingServiceNumber());
     api.checkServiceNumber(number)
@@ -28,7 +35,10 @@ export const submitServiceNumber = (api, number) => dispatch => {
             } else {
                 dispatch(invalidServiceNumber())
             }
-        });
+        })
+        .catch((reason) => {
+            dispatch(sendError(reason.message))
+        })
 
 
     // return {

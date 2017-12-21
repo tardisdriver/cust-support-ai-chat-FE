@@ -1,16 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 
-import ServiceCheck from './components/service-check';
+import ServiceCheck from './containers/service-check';
 import Landing from './components/landing';
 
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={this.props.store}>
+      <div>
         <Landing />
         <ServiceCheck />
-      </Provider>
+      </div>
     );
   }
 }

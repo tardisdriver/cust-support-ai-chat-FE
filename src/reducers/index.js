@@ -1,4 +1,5 @@
-import { CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER } from '../constants';
+import { CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR } from '../constants';
+import composeReducers from 'compose-redux-reducers';
 
 export function serviceNumber(state, action) {
     switch (action.type) {
@@ -19,4 +20,14 @@ export function serviceNumber(state, action) {
     }
 }
 
-export default serviceNumber;
+export function onError(state, action) {
+    if (action.type === ERROR) {
+        return {
+            customerData: state.customerData,
+            error: action.reason
+        }
+    }
+    return state;
+}
+
+export default composeReducers(serviceNumber, onError);
