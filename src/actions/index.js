@@ -1,4 +1,4 @@
-import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR } from '../constants';
+import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR, INVALID_PHONE_NUMBER, PHONE_NUMBER_VERIFIED, CHECK_PHONE_NUMBER } from '../constants';
 
 function checkingServiceNumber() {
     return {
@@ -9,7 +9,8 @@ function checkingServiceNumber() {
 function customerFound(customerData) {
     return {
         type: CUSTOMER_FOUND,
-        customerData
+        serviceNumber: customerData.id,
+        customerName: customerData.name
     }
 }
 
@@ -26,6 +27,25 @@ function sendError(reason) {
     }
 }
 
+function checkingPhoneNumber() {
+    return {
+        type: CHECK_PHONE_NUMBER
+    }
+}
+
+function invalidPhone() {
+    return {
+        type: INVALID_PHONE_NUMBER
+    }
+}
+
+function phoneVerified(customerPhone) {
+    return {
+        type: PHONE_NUMBER_VERIFIED,
+        customerPhone
+    }
+}
+
 export const submitServiceNumber = (api, number) => dispatch => {
     dispatch(checkingServiceNumber());
     api.checkServiceNumber(number)
@@ -39,18 +59,19 @@ export const submitServiceNumber = (api, number) => dispatch => {
         .catch((reason) => {
             dispatch(sendError(reason.message))
         })
-
-
-    // return {
-    //     type: SUBMIT_SERVICE_NUMBER,
-    //     number
-    //}
-
 }
 
-
-
-//when submit request, throw new action function, use Thunk
-//on submitservice, fetch, on fetch success, then...dispatch new action, fail ....error
-//Promise.success 
-//check for 404
+export const submitPhoneNumber = (api, phoneNumber, serviceNumber) => dispatch => {
+    dispatch(checkingPhoneNumber());
+    api.checkPhoneNumber(phoneNumber, serviceNumber)
+        .then((customerData) => {
+            if (customerData) {
+                dispatch(phoneVerified(phoneNumber))
+            } else {
+                dispatch(invalidPhone())
+            }
+        })
+        .catch((reason) => {
+            dispatch(sendError(reason.message))
+        })
+}
