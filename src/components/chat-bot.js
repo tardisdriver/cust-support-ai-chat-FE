@@ -4,7 +4,7 @@ export default class ChatBot extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.sendMessage(this.input.value);
+        this.props.sendMessage(this.input.value, this.props.conversationID);
     }
 
     render() {
@@ -33,9 +33,6 @@ export default class ChatBot extends React.Component {
     }
 }
 
-//prop messageHistory = array of objects with a certain shape
-//shape => content of message, which party sent the message
-//{ content: String, sender: String }
-//prop sendMessage function
-//      params = content of the message (String)
-//      returns undefined
+// make loading screen between events
+// dispatch an action in redux - chat loading request - succeeded/failed - onDidMount -> dispatch event chat_load_request
+// chat_load succeeded vs chat_load failed

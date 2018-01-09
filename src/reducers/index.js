@@ -1,4 +1,4 @@
-import { CHECK_PHONE_NUMBER, PHONE_NUMBER_VERIFIED, INVALID_PHONE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR } from '../constants';
+import { CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR } from '../constants';
 import composeReducers from 'compose-redux-reducers';
 
 export function serviceNumber(state, action) {
@@ -7,7 +7,8 @@ export function serviceNumber(state, action) {
             return {
                 customerFound: true,
                 serviceNumber: action.serviceNumber,
-                customerName: action.customerName
+                customerName: action.customerName,
+                messageHist: []
             }
         case CHECK_SERVICE_NUMBER:
             return {
@@ -22,34 +23,33 @@ export function serviceNumber(state, action) {
     }
 }
 
-export function phoneNumber(state, action) {
-    switch (action.type) {
-        case CHECK_PHONE_NUMBER:
-            return {
-                ...state, checkingPhoneNumber: true
-            }
-        case INVALID_PHONE_NUMBER:
-            return {
-                ...state, invalidPhone: true
-            }
-        case PHONE_NUMBER_VERIFIED:
-            return {
-                ...state, phoneVerified: true,
-                customerPhone: action.customerPhone
-            }
-        default:
-            return state;
-    }
-}
-
 export function onError(state, action) {
     if (action.type === ERROR) {
+        const { customerFound, serviceNumber, customerName, messageHist } = state;
         return {
-            customerData: state.customerData,
+            customerFound,
+            serviceNumber,
+            customerName,
+            messageHist,
             error: action.reason
         }
     }
     return state;
 }
 
-export default composeReducers(serviceNumber, onError, phoneNumber);
+export function newMessage(state, action) {
+    if (action.type === NEW_MESSAGE) {
+        const { customerFound, serviceNumber, customerName } = state;
+        const messageHist = state.messageHist.slice();
+        messageHist.push({ sender: action.sender, content: action.message })
+        return {
+            customerFound,
+            serviceNumber,
+            customerName,
+            messageHist
+        }
+    }
+    return state;
+}
+
+export default composeReducers(newMessage, serviceNumber, onError, phoneNumber);

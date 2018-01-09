@@ -8,6 +8,8 @@ export default class ServiceCheck extends React.Component {
         const entry = this.textInput.value;
         this.props.submitServiceNumber(entry)
     }
+
+
     render() {
         return (
             <form id='service-check' onSubmit={e => this.onSubmit(e)}>

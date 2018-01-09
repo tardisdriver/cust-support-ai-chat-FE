@@ -1,4 +1,4 @@
-import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR, INVALID_PHONE_NUMBER, PHONE_NUMBER_VERIFIED, CHECK_PHONE_NUMBER } from '../constants';
+import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR, INVALID_PHONE_NUMBER, PHONE_NUMBER_VERIFIED, CHECK_PHONE_NUMBER, NEW_MESSAGE } from '../constants';
 
 function checkingServiceNumber() {
     return {
@@ -27,24 +27,14 @@ function sendError(reason) {
     }
 }
 
-function checkingPhoneNumber() {
+function newMessage(sender, message) {
     return {
-        type: CHECK_PHONE_NUMBER
+        type: NEW_MESSAGE,
+        sender,
+        message
     }
 }
 
-function invalidPhone() {
-    return {
-        type: INVALID_PHONE_NUMBER
-    }
-}
-
-function phoneVerified(customerPhone) {
-    return {
-        type: PHONE_NUMBER_VERIFIED,
-        customerPhone
-    }
-}
 
 export const submitServiceNumber = (api, number) => dispatch => {
     dispatch(checkingServiceNumber());
@@ -61,17 +51,13 @@ export const submitServiceNumber = (api, number) => dispatch => {
         })
 }
 
-export const submitPhoneNumber = (api, phoneNumber, serviceNumber) => dispatch => {
-    dispatch(checkingPhoneNumber());
-    api.checkPhoneNumber(phoneNumber, serviceNumber)
-        .then((customerData) => {
-            if (customerData) {
-                dispatch(phoneVerified(phoneNumber))
-            } else {
-                dispatch(invalidPhone())
-            }
+export const sendMessage = (api, message, conversationID) => dispatch => {
+    dispatch(newMessage('customer', message));
+    api.sendMessage(message, conversationID)
+        .then(resMessage => {
+            dispatch(newMessage('bot', resMessage))
         })
         .catch((reason) => {
             dispatch(sendError(reason.message))
         })
-}
+} 

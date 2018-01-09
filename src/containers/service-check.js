@@ -1,8 +1,8 @@
 import ServiceCheck from '../components/service-check';
 import { connect } from 'react-redux';
-import * as api from '../api'
+import * as api from '../api';
 
-import { submitServiceNumber } from '../actions'
+import { submitServiceNumber } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
     const invalidNumber = state.invalidNumber;
