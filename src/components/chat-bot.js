@@ -4,12 +4,18 @@ export default class ChatBot extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.sendMessage(this.input.value, this.props.conversationID);
+        this.props.sendMessage(this.input.value);
+    }
+
+    componentDidMount() {
+        if (!this.props.messageHistory && !this.props.loadingConveration) {
+            this.props.startConversation();
+        }
     }
 
     render() {
-        return (
-            <div>
+        const content = this.props.messageHistory ?
+            (<div>
                 <h1>Chatting with SHRUB</h1>
                 <div className="chatbox">
                     {this.props.messageHistory.map((message, index) => {
@@ -27,6 +33,10 @@ export default class ChatBot extends React.Component {
                     <input type='text' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
                     <input type='submit'></input>
                 </form>
+            </div>) : 'loading conversation';
+        return (
+            <div>
+                {content}
             </div>
 
         )

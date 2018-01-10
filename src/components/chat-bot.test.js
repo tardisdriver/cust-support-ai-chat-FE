@@ -30,10 +30,10 @@ describe('<ChatBot />', () => {
     it('allows user to send message', () => {
         expect.assertions(1);
         const callback = jest.fn();
-        const wrapper = mount(<ChatBot messageHistory={[]} sendMessage={callback} conversationID='TESTING' />);
+        const wrapper = mount(<ChatBot messageHistory={[]} sendMessage={callback} />);
         const message = 'Testing now';
         wrapper.find('input[type="text"]').instance().value = message;
         wrapper.find('form').simulate('submit');
-        expect(callback).toHaveBeenCalledWith(message, 'TESTING');
+        expect(callback).toHaveBeenCalledWith(message);
     });
 });
