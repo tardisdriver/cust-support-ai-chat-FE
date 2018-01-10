@@ -1,4 +1,4 @@
-import { CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR } from '../constants';
+import { NEW_MESSAGE, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR, START_CONVERSATION, LOADING_CONVERSATION } from '../constants';
 import composeReducers from 'compose-redux-reducers';
 
 export function serviceNumber(state, action) {
@@ -8,7 +8,7 @@ export function serviceNumber(state, action) {
                 customerFound: true,
                 serviceNumber: action.serviceNumber,
                 customerName: action.customerName,
-                messageHist: []
+
             }
         case CHECK_SERVICE_NUMBER:
             return {
@@ -52,4 +52,27 @@ export function newMessage(state, action) {
     return state;
 }
 
-export default composeReducers(newMessage, serviceNumber, onError, phoneNumber);
+export function startConversation(state, action) {
+    const { customerFound, serviceNumber, customerName } = state;
+    switch (action.type) {
+        case START_CONVERSATION:
+            const conversationID = action.conversationID;
+            return {
+                conversationID,
+                customerFound,
+                serviceNumber,
+                customerName,
+                messageHist: []
+            }
+        case LOADING_CONVERSATION:
+            return {
+                customerFound,
+                serviceNumber,
+                customerName,
+                loadingConversation: true
+            }
+    }
+    return state;
+}
+
+export default composeReducers(startConversation, newMessage, serviceNumber, onError);

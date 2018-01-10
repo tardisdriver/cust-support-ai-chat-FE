@@ -29,17 +29,49 @@ export function checkServiceNumber(number) {
         });
 }
 
-export function sendMessage(message, conversationID) {
+export function sendMessage(message, number, conversationID) {
+    const headers = new Headers({
+        "X-Service-Number": number.toString()
+    });
     return fetch(`${HOST}/conversations/${conversationID}`, {
         method: 'POST',
-        body: message
+        body: message,
+        headers
     }).then((res) => {
         if (res.ok) {
             return res.text()
         } else if (res.status === 404) {
             throw { message: 'Conversation not found' }
+        } else if (res.status === 302) {
+            throw { message: 'Not authorized to view this conversation' }
+        }
+        throw { message: 'There was a problem with your request' }
+    })
+}
+
+export function startConversation(number) {
+    const headers = new Headers({
+        "X-Service-Number": number.toString()
+    });
+    return fetch(`${HOST}/conversations`, {
+        headers
+    }).then((res) => {
+        if (res.ok) {
+            return res.text()
+        } else if (res.status === 302) {
+            throw { message: 'Not authorized to create conversations' }
         }
         throw { message: 'There was a problem with your request' }
     })
 
 }
+
+//if no service number, then bounce to service check page
+
+//service number found
+//return 200
+
+//service number not found
+//return 302
+
+//make a mock Watson api with drakov

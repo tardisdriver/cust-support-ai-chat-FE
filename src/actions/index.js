@@ -1,4 +1,4 @@
-import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR, INVALID_PHONE_NUMBER, PHONE_NUMBER_VERIFIED, CHECK_PHONE_NUMBER, NEW_MESSAGE } from '../constants';
+import { SUBMIT_SERVICE_NUMBER, CHECK_SERVICE_NUMBER, CUSTOMER_FOUND, INVALID_SERVICE_NUMBER, ERROR, NEW_MESSAGE, START_CONVERSATION, LOADING_CONVERSATION } from '../constants';
 
 function checkingServiceNumber() {
     return {
@@ -35,6 +35,19 @@ function newMessage(sender, message) {
     }
 }
 
+function startConversation(conversationID) {
+    return {
+        type: START_CONVERSATION,
+        conversationID
+    }
+}
+
+function loadingConversation() {
+    return {
+        type: LOADING_CONVERSATION
+    }
+}
+
 
 export const submitServiceNumber = (api, number) => dispatch => {
     dispatch(checkingServiceNumber());
@@ -51,13 +64,24 @@ export const submitServiceNumber = (api, number) => dispatch => {
         })
 }
 
-export const sendMessage = (api, message, conversationID) => dispatch => {
+export const sendMessage = (api, message, number, conversationID) => dispatch => {
     dispatch(newMessage('customer', message));
-    api.sendMessage(message, conversationID)
+    api.sendMessage(message, number, conversationID)
         .then(resMessage => {
             dispatch(newMessage('bot', resMessage))
         })
         .catch((reason) => {
             dispatch(sendError(reason.message))
         })
-} 
+}
+
+export const startNewConversation = (api, number) => dispatch => {
+    dispatch(loadingConversation());
+    api.startConversation(number)
+        .then(conversationID => {
+            dispatch(startConversation(conversationID))
+        })
+        .catch((reason) => {
+            dispatch(sendError(reason.message))
+        })
+}
