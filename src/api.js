@@ -66,12 +66,3 @@ export function startConversation(number) {
 
 }
 
-//if no service number, then bounce to service check page
-
-//service number found
-//return 200
-
-//service number not found
-//return 302
-
-//make a mock Watson api with drakov
