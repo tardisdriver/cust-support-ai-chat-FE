@@ -35,10 +35,11 @@ function newMessage(sender, message) {
     }
 }
 
-function startConversation(conversationID) {
+function startConversation(conversationID, message) {
     return {
         type: START_CONVERSATION,
-        conversationID
+        conversationID,
+        message
     }
 }
 
@@ -78,8 +79,8 @@ export const sendMessage = (api, message, number, conversationID) => dispatch =>
 export const startNewConversation = (api, number) => dispatch => {
     dispatch(loadingConversation());
     api.startConversation(number)
-        .then(conversationID => {
-            dispatch(startConversation(conversationID))
+        .then(({ conversationID, message }) => {
+            dispatch(startConversation(conversationID, message))
         })
         .catch((reason) => {
             dispatch(sendError(reason.message))

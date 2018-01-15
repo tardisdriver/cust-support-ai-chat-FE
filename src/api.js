@@ -11,7 +11,7 @@ let HOST;
 if (process.env.NODE_ENV === 'production') {
     HOST = 'https://cryptic-sierra-54081.herokuapp.com';
 } else {
-    HOST = 'http://localhost:3000';
+    HOST = 'http://localhost:8080';
 }
 
 console.log(HOST);
@@ -57,7 +57,7 @@ export function startConversation(number) {
         headers
     }).then((res) => {
         if (res.ok) {
-            return res.text()
+            return res.json()
         } else if (res.status === 302) {
             throw { message: 'Not authorized to create conversations' }
         }

@@ -62,7 +62,7 @@ export function startConversation(state, action) {
                 customerFound,
                 serviceNumber,
                 customerName,
-                messageHist: []
+                messageHist: [action.message]
             }
         case LOADING_CONVERSATION:
             return {
