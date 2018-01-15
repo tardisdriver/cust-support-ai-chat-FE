@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './chat-bot.css';
+
 export default class ChatBot extends React.Component {
 
     onSubmit(e) {
@@ -15,7 +17,7 @@ export default class ChatBot extends React.Component {
 
     render() {
         const content = this.props.messageHistory ?
-            (<div>
+            (<div className='bot'>
                 <h1>Chatting with SHRUB</h1>
                 <div className="chatbox">
                     {this.props.messageHistory.map((message, index) => {
@@ -29,9 +31,9 @@ export default class ChatBot extends React.Component {
                         )
                     })}
                 </div>
-                <form onSubmit={(e) => this.onSubmit(e)}>
-                    <input type='text' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
-                    <input type='submit'></input>
+                <form className='service-number' onSubmit={(e) => this.onSubmit(e)}>
+                    <input type='text' className='number-field' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
+                    <input type='submit' className='submit'></input>
                 </form>
             </div>) : 'loading conversation';
         return (
