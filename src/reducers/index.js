@@ -57,12 +57,13 @@ export function startConversation(state, action) {
     switch (action.type) {
         case START_CONVERSATION:
             const conversationID = action.conversationID;
+            const message = { content: action.message, sender: 'bot' };
             return {
                 conversationID,
                 customerFound,
                 serviceNumber,
                 customerName,
-                messageHist: [action.message]
+                messageHist: [message]
             }
         case LOADING_CONVERSATION:
             return {

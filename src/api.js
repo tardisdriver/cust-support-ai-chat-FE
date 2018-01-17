@@ -42,7 +42,7 @@ export function sendMessage(message, number, conversationID) {
             return res.text()
         } else if (res.status === 404) {
             throw { message: 'Conversation not found' }
-        } else if (res.status === 302) {
+        } else if (res.status === 403) {
             throw { message: 'Not authorized to view this conversation' }
         }
         throw { message: 'There was a problem with your request' }
@@ -54,6 +54,8 @@ export function startConversation(number) {
         "X-Service-Number": number.toString()
     });
     return fetch(`${HOST}/conversations`, {
+        method: 'GET',
+        mode: 'cors',
         headers
     }).then((res) => {
         if (res.ok) {

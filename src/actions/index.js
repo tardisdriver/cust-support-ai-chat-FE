@@ -80,6 +80,7 @@ export const startNewConversation = (api, number) => dispatch => {
     dispatch(loadingConversation());
     api.startConversation(number)
         .then(({ conversationID, message }) => {
+            //debug
             dispatch(startConversation(conversationID, message))
         })
         .catch((reason) => {
