@@ -32,8 +32,8 @@ export default class ChatBot extends React.Component {
                         )
                     })}
                 </div>
-                <form className='service-number' onSubmit={(e) => this.onSubmit(e)}>
-                    <input type='text' className='number-field' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
+                <form className='chat-area' onSubmit={(e) => this.onSubmit(e)}>
+                    <input type='text' className='chat-field' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
                     <input type='submit' className='submit'></input>
                 </form>
             </div>) : 'loading conversation';
