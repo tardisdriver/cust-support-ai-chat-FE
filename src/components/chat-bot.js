@@ -16,7 +16,6 @@ export default class ChatBot extends React.Component {
     }
 
     render() {
-        console.log(this.props.messageHistory);
         const content = this.props.messageHistory ?
             (<div className='bot'>
                 <h1>Chatting with SHRUB</h1>

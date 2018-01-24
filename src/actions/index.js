@@ -9,7 +9,7 @@ function checkingServiceNumber() {
 function customerFound(customerData) {
     return {
         type: CUSTOMER_FOUND,
-        serviceNumber: customerData.id,
+        serviceNumber: customerData.serviceNumber,
         customerName: customerData.name
     }
 }
@@ -27,11 +27,12 @@ function sendError(reason) {
     }
 }
 
-function newMessage(sender, message) {
+function newMessage(sender, message, conversationID) {
     return {
         type: NEW_MESSAGE,
         sender,
-        message
+        message,
+        conversationID
     }
 }
 
@@ -80,7 +81,6 @@ export const startNewConversation = (api, number) => dispatch => {
     dispatch(loadingConversation());
     api.startConversation(number)
         .then(({ conversationID, message }) => {
-            //debug
             dispatch(startConversation(conversationID, message))
         })
         .catch((reason) => {

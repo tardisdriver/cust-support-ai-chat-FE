@@ -31,8 +31,9 @@ export function checkServiceNumber(number) {
 
 export function sendMessage(message, number, conversationID) {
     const headers = new Headers({
-        "X-Service-Number": number.toString()
+        "X-Service-Number": number.toString(),
     });
+    console.log(headers);
     return fetch(`${HOST}/conversations/${conversationID}`, {
         method: 'POST',
         body: message,
@@ -48,6 +49,8 @@ export function sendMessage(message, number, conversationID) {
         throw { message: 'There was a problem with your request' }
     })
 }
+//in state, conversation ID is getting overridden
+
 
 export function startConversation(number) {
     const headers = new Headers({

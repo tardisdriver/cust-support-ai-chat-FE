@@ -39,14 +39,15 @@ export function onError(state, action) {
 
 export function newMessage(state, action) {
     if (action.type === NEW_MESSAGE) {
-        const { customerFound, serviceNumber, customerName } = state;
+        const { customerFound, serviceNumber, customerName, conversationID } = state;
         const messageHist = state.messageHist.slice();
         messageHist.push({ sender: action.sender, content: action.message })
         return {
             customerFound,
             serviceNumber,
             customerName,
-            messageHist
+            messageHist,
+            conversationID
         }
     }
     return state;
