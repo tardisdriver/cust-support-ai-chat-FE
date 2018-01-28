@@ -1,34 +1,31 @@
-#service-check {
-    display: block;
-    border: 2px solid grey;
+.infobox {
+    width: 350px;
+    height: 100px;
+    background-color: #efefef;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
     padding: 5px;
-    margin: 15px 20px;
-    text-align: center;
-    border-radius: 15px;
-    font-size: 1.3em;
 }
 
-#svc-text {
-    padding-bottom: 10px;
-    display: block;
+.infobox-head {
+    font-size: 20px;
+    color: black;
 }
 
-::placeholder {
-    color: rgb(205, 203, 203);
-}
-
-#svc-entry {
-    font-size: 1em;
-    border: 1px rgb(74, 74, 74) solid;
-    padding: 5px;
+.info {
+    display: flex;
+    flex-flow: row wrap;
     margin-bottom: 15px;
 }
 
-.svc-sub {
-    display: block;
-    clear: both;
-    margin: 0 auto;
-    font-size: 1em;
+.infobody {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.go-to-bot {
     background: #42b3ff;
     background-image: -webkit-linear-gradient(top, #42b3ff, #206e9e);
     background-image: -moz-linear-gradient(top, #42b3ff, #206e9e);
@@ -44,6 +41,10 @@
     padding: 10px 10px 10px 10px;
     display: block; 
     margin: 0 auto;
-    width: 130px;
-    margin-bottom: 30px;
+    width: 250px;
+}
+
+.about-text {
+    text-align: justify;
+    padding: 25px;
 }

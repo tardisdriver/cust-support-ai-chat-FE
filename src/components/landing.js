@@ -1,12 +1,35 @@
 import React from 'react';
 
+import InfoBox from './infobox';
 import './landing.css';
+import shrubbot from './images/shrub-bot.png';
 
-export default function Landing() {
+const boxes = [
+    { text: 'Automated Support', body: 'Free up your support staff while SHRUB takes care of frequently asked questions.' },
+    { text: 'FAQ Aware', body: 'SHRUB will digest your FAQ documents and deliver the answers to your clients in a familiar, text-like conversation.' },
+];
+
+//write onClick function and then add onclick to go-to-bot button
+//onCLick function switches continueClicked from false to true
+
+export default function Landing(props) {
+    const boxesRender = boxes.map((box, index) =>
+        <InfoBox key={index} {...box} />
+    );
     return (
-        <div id='landing'>
-            <p>This web app is meant for a company who offers technical support. First, the customer is prompted to verify their account information. This is a gateway to add additional features such as checks on the account/service contract to make sure there are no issues that the customer should be aware of. Then, the customer is presented with an artificially intelligent chat bot powered by the IBM Watson API that will crawl FAQ documents to answer customer's basic troubleshooting questions, alieviating load on human technical support personel. Reading from the FAQ is only an entry point, and the bot could eventually be trained to troubleshoot customer's issues on its own.  For a demo, follow the prompts on the proceeding pages.</p>
-            <button>Continue</button>
+
+        //pull header out into its own component?
+
+        <div>
+            <img src={shrubbot} className='mascot' />
+            <div className='info'>
+                {boxesRender}
+            </div>
+            <button className='go-to-bot'>Click Here To Try Out Talking To SHRUB</button>
+            <div className='about-text'>
+                <p>SHRUB is a chat bot that is intended to assist companies looking to free up their support staff to work on more complex issues while SHRUB takes care of simple, frequently asked questions from your client base. SHRUB works off of FAQ documents that you provide, and it delivers the answers to your clients.</p>
+            </div>
         </div>
+
     )
 }

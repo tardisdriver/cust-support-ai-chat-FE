@@ -23,7 +23,7 @@ export default class ChatBot extends React.Component {
                     {this.props.messageHistory.map((message, index) => {
                         const content = message.content;
                         const sender = message.sender;
-                        const messageClass = sender == 'bot' ? 'messages-bot' : 'messages-user';
+                        const messageClass = sender === 'bot' ? 'messages-bot' : 'messages-user';
                         return (
                             <div className={messageClass + ' message'} key={index}>
                                 {content}
