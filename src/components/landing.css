@@ -20,5 +20,9 @@ h2 {
 }
 
 @media only screen and (min-device-width: 800px) {
+.mascot {
+    height: 30%;
+    width: 12%;
+}
 
 }
