@@ -1,12 +1,14 @@
 import React from 'react';
 
 import './chat-bot.css';
+import shrubbot from './images/shrub-bot.png';
 
 export default class ChatBot extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
         this.props.sendMessage(this.input.value);
+        this.input.value = '';
     }
 
     componentDidMount() {
@@ -18,7 +20,10 @@ export default class ChatBot extends React.Component {
     render() {
         const content = this.props.messageHistory ?
             (<div className='bot'>
-                <h1>Chatting with SHRUB</h1>
+                <h1>Now chatting with SHRUB</h1>
+                <div id='shrubimg'>
+                    <img id='shrub-mascot' className='hidden' src={shrubbot} />
+                </div>
                 <div className="chatbox">
                     {this.props.messageHistory.map((message, index) => {
                         const content = message.content;
@@ -30,11 +35,14 @@ export default class ChatBot extends React.Component {
                             </div>
                         )
                     })}
+
                 </div>
-                <form className='chat-area' onSubmit={(e) => this.onSubmit(e)}>
-                    <input type='text' className='chat-field' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
-                    <input type='submit' className='submit'></input>
-                </form>
+                <div className='response-area'>
+                    <form className='chat-area' onSubmit={(e) => this.onSubmit(e)}>
+                        <input type='text' className='chat-field' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
+                        <input type='submit' className='submit'></input>
+                    </form>
+                </div>
             </div>) : 'loading conversation';
         return (
             <div className='bot'>
