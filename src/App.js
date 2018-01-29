@@ -14,7 +14,6 @@ export default class App extends React.Component {
     }
   }
   render() {
-    //return header here
     //if statement: if continueClicked = false, deliver landing
     if (this.state.continueClicked) {
       return (

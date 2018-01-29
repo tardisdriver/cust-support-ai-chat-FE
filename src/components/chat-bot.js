@@ -37,7 +37,7 @@ export default class ChatBot extends React.Component {
                 </form>
             </div>) : 'loading conversation';
         return (
-            <div>
+            <div className='bot'>
                 {content}
             </div>
 

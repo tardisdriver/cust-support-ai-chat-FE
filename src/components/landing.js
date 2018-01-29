@@ -16,11 +16,9 @@ export default function Landing(props) {
     const boxesRender = boxes.map((box, index) =>
         <InfoBox key={index} {...box} />
     );
+
     return (
-
-        //pull header out into its own component?
-
-        <div>
+        <div id='landing'>
             <img src={shrubbot} className='mascot' />
             <div className='info'>
                 {boxesRender}

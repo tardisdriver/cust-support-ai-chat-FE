@@ -47,3 +47,8 @@
     width: 130px;
     margin-bottom: 30px;
 }
+
+.tip-box {
+    padding: 10px;
+    text-align: center;
+}

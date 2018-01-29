@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+#landing {
+    overflow-y:scroll;
+}
+
 h2 {
     text-align: center;
     margin-top: 50px;
@@ -12,5 +16,5 @@ h2 {
     margin: 0 auto;
     height: 60%;
     width: 24%;
-    padding: 15px;
+    padding: 2px;
 }

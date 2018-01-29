@@ -2,27 +2,30 @@
     width: 350px;
     height: 100px;
     background-color: #efefef;
-    border-radius: 10px;
+    border-radius: 35px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
-    padding: 5px;
+    margin-top: 5px;
 }
 
 .infobox-head {
-    font-size: 20px;
+    font-size: 1.2em;
     color: black;
+    padding-top: 5px;
+    padding-bottom:0;
 }
 
 .info {
     display: flex;
     flex-flow: row wrap;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .infobody {
     text-align: center;
-    padding-top: 5px;
+    margin-bottom: 2px;
 }
 
 .go-to-bot {
@@ -37,7 +40,7 @@
     border-radius: 35px;
     font-family: Arial;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 1.2em;
     padding: 10px 10px 10px 10px;
     display: block; 
     margin: 0 auto;
