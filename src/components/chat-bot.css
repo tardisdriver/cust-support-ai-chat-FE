@@ -76,3 +76,29 @@ h1 {
     text-align: right;
     background-color: lightgreen;
 }
+
+.hidden {
+    display: none;
+}
+
+.response-area {
+    margin-bottom: 5px;
+}
+
+@media only screen and (min-device-width: 800px) {
+    .hidden {
+        display: inline-block;
+    }
+
+    #shrub-mascot {
+        float: left;
+    }
+    .chatbox {
+        float: right;
+        width: 65%;
+    }
+    .chat-field {
+        margin-left: 31%;
+        width: 58%;
+    }
+}
