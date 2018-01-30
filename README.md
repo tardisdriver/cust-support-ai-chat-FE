@@ -2,7 +2,7 @@
 
 **SHRUB** is a customer service bot that interacts with a customer to help them navigate questions they may have about a product or service.  In this demo, the bot is configured to answer low-level technical support questions by referencing an FAQ.  SHRUB is built using the [IBM Watson API](https://www.ibm.com/watson/developer/), with React, Node.js, Express, and MongoDB.
 
-This project is currently in development.
+This project is currently in development.  Backend is located at https://github.com/tardisdriver/cust-support-ai-chat-BE.
 
 **User Wireframes and User Flow**
 
