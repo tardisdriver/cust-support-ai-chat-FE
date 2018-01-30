@@ -8,7 +8,5 @@ import { Provider } from 'react-redux';
 
 const store = configStore({});
 
-// store.subscribe(() => console.log(store.getState()));
-
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

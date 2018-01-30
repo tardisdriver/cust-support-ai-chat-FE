@@ -14,9 +14,6 @@ if (process.env.NODE_ENV === 'production') {
     HOST = 'http://localhost:8080';
 }
 
-console.log(HOST);
-
-
 export function checkServiceNumber(number) {
     return fetch(`${HOST}/customers/${number}`)
         .then((res) => {
@@ -33,7 +30,6 @@ export function sendMessage(message, number, conversationID) {
     const headers = new Headers({
         "X-Service-Number": number.toString(),
     });
-    console.log(headers);
     return fetch(`${HOST}/conversations/${conversationID}`, {
         method: 'POST',
         body: message,

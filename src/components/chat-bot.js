@@ -52,7 +52,3 @@ export default class ChatBot extends React.Component {
         )
     }
 }
-
-// make loading screen between events
-// dispatch an action in redux - chat loading request - succeeded/failed - onDidMount -> dispatch event chat_load_request
-// chat_load succeeded vs chat_load failed
