@@ -4,7 +4,7 @@
     padding: 5px;
     margin: 15px 20px;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 4px;
     font-size: 1.3em;
 }
 
@@ -30,14 +30,7 @@
     margin: 0 auto;
     font-size: 1em;
     background: #42b3ff;
-    background-image: -webkit-linear-gradient(top, #42b3ff, #206e9e);
-    background-image: -moz-linear-gradient(top, #42b3ff, #206e9e);
-    background-image: -ms-linear-gradient(top, #42b3ff, #206e9e);
-    background-image: -o-linear-gradient(top, #42b3ff, #206e9e);
-    background-image: linear-gradient(to bottom, #42b3ff, #206e9e);
-    -webkit-border-radius: 12;
-    -moz-border-radius: 12;
-    border-radius: 35px;
+    border-radius: 4px;
     font-family: Arial;
     color: #ffffff;
     font-size: 20px;

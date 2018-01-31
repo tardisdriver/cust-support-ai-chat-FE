@@ -5,7 +5,9 @@ import './header.css';
 export default function Header() {
     return (
         <div className='header'>
-            <h1>SHRUB</h1>
+            <p className="demo">
+                <span class="demo-item" /><span class="demo-item_inner">SHRUB</span>
+            </p>
             <h2>Support Helper Responsive Utility Bot</h2>
         </div>
     )

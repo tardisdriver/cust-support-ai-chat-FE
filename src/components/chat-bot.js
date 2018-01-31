@@ -24,6 +24,10 @@ export default class ChatBot extends React.Component {
                 <div id='shrubimg'>
                     <img id='shrub-mascot' className='hidden' src={shrubbot} />
                 </div>
+                <div className='hidden tip-box-2'>
+                    <h3>TIP:</h3>
+                    <span>SHRUB knows some things about computers.  Try asking her how to reboot your computer. </span>
+                </div>
                 <div className="chatbox">
                     {this.props.messageHistory.map((message, index) => {
                         const content = message.content;
