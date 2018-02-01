@@ -10,7 +10,7 @@
 }
 
 .chatbox {
-    height: 56vh;
+    height: 58vh;
     width: 95%; 
     margin-left: auto;
     margin-right: auto;
@@ -85,6 +85,27 @@ h1 {
     display: block;
     position: absolute;
    height: 100vh;
+}
+
+@media only screen and (min-device-height: 560px) {
+    /* iphone 5 = 568 */
+.chatbox {
+    height: 62vh;
+    }
+}
+
+@media only screen and (min-device-height: 660px) {
+    /* iphone 6 = 667 */
+.chatbox {
+    height: 69vh;
+    }
+}
+
+@media only screen and (min-device-height: 733px) {
+    /* iphone 6+ = 736 */
+.chatbox {
+    height: 72.4vh;
+    }
 }
 
 @media only screen and (min-device-width: 700px) {

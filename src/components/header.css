@@ -12,10 +12,11 @@
 }
 
 .header h2 {
-    margin-top: 1%;
-    font-size: .8em;
+    margin-top: 1px;
+    font-size: 1.1em;
     text-shadow: 2px 2px #2b2626;
     font-family: 'Pathway Gothic One', sans-serif;
+    padding-top:0;
 }
 
 .demo, .demo-item {
