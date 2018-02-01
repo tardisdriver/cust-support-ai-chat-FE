@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import './chat-bot.css';
 import shrubbot from './images/shrub-bot.png';
@@ -10,6 +11,13 @@ export default class ChatBot extends React.Component {
         this.props.sendMessage(this.input.value);
         this.input.value = '';
     }
+    scrollToBottom = () => {
+        const node = ReactDOM.findDOMNode(this.messagesEnd);
+        if (node != null) {
+            node.scrollIntoView({ behavior: "smooth" });
+            console.log('tried to scroll');
+        }
+    }
 
     componentDidMount() {
         if (!this.props.messageHistory && !this.props.loadingConveration) {
@@ -17,6 +25,11 @@ export default class ChatBot extends React.Component {
                 this.props.startConversation();
             }
         }
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
     }
 
     render() {
@@ -28,7 +41,7 @@ export default class ChatBot extends React.Component {
                 </div>
                 <div className='hidden tip-box-2'>
                     <h3>TIP:</h3>
-                    <span>SHRUB knows some things about computers.  Try asking her how to reboot your computer. </span>
+                    <span>SHRUB knows some things about computers. Try asking her how to reboot your computer. </span>
                 </div>
                 <div className="chatbox">
                     {this.props.messageHistory.map((message, index) => {
@@ -41,8 +54,12 @@ export default class ChatBot extends React.Component {
                             </div>
                         )
                     })}
-                    {/* ^^^make new component and use key */}
+                    <div style={{ float: "left", clear: "both" }}
+                        ref={(el) => { this.messagesEnd = el; }}>
+                    </div>
                 </div>
+                {/* ^^^make new component and use key */}
+
                 <div className='response-area'>
                     <form className='chat-area' onSubmit={(e) => this.onSubmit(e)}>
                         <input type='text' className='chat-field' placeholder='Enter your message here' ref={(input) => this.input = input}></input>
