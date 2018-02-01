@@ -45,8 +45,6 @@ export function sendMessage(message, number, conversationID) {
         throw { message: 'There was a problem with your request' }
     })
 }
-//in state, conversation ID is getting overridden
-
 
 export function startConversation(number) {
     const headers = new Headers({
@@ -66,4 +64,3 @@ export function startConversation(number) {
     })
 
 }
-

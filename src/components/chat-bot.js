@@ -58,7 +58,6 @@ export default class ChatBot extends React.Component {
                         ref={(el) => { this.messagesEnd = el; }}>
                     </div>
                 </div>
-                {/* ^^^make new component and use key */}
 
                 <div className='response-area'>
                     <form className='chat-area' onSubmit={(e) => this.onSubmit(e)}>
