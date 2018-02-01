@@ -124,6 +124,7 @@ h1 {
     .chatbox {
         float: right;
         width: 65%;
+        height:55vh;
     }
     .chat-field {
         margin-left: 31%;
