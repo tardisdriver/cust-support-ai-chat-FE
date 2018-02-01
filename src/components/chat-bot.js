@@ -13,7 +13,9 @@ export default class ChatBot extends React.Component {
 
     componentDidMount() {
         if (!this.props.messageHistory && !this.props.loadingConveration) {
-            this.props.startConversation();
+            if (this.props.startConversation) {
+                this.props.startConversation();
+            }
         }
     }
 
@@ -39,7 +41,7 @@ export default class ChatBot extends React.Component {
                             </div>
                         )
                     })}
-
+                    {/* ^^^make new component and use key */}
                 </div>
                 <div className='response-area'>
                     <form className='chat-area' onSubmit={(e) => this.onSubmit(e)}>
