@@ -1,15 +1,7 @@
-
-//getServiceNumber
-
-//Promise.resolve
-//fetch => calls drakov locally
-
-//local point to drakov, on netlify, point to apiary
-
 let HOST;
 
 if (process.env.NODE_ENV === 'production') {
-    HOST = 'https://cryptic-sierra-54081.herokuapp.com';
+    HOST = 'https://cryptic-sierra-54081.herokuapp.com/';
 } else {
     HOST = 'http://localhost:8080';
 }
