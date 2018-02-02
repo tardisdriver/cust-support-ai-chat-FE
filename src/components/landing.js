@@ -15,7 +15,7 @@ export default function Landing(props) {
     );
     return (
         <div id='landing'>
-            <img src={shrubbot} className='mascot' />
+            <img src={shrubbot} className='mascot' alt='SHRUB Bot' />
             <div className='info'>
                 {boxesRender}
             </div>

@@ -73,8 +73,8 @@ export function startConversation(state, action) {
                 customerName,
                 loadingConversation: true
             }
+        default: return state;
     }
-    return state;
 }
 
 export default composeReducers(startConversation, newMessage, serviceNumber, onError);

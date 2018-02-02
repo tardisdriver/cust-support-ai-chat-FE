@@ -14,7 +14,7 @@ export function checkServiceNumber(number) {
             } else if (res.status === 404) {
                 return false
             }
-            throw { message: 'There was a problem with your request' }
+            throw new Error('There was a problem with your request')
         });
 }
 
@@ -30,11 +30,11 @@ export function sendMessage(message, number, conversationID) {
         if (res.ok) {
             return res.text()
         } else if (res.status === 404) {
-            throw { message: 'Conversation not found' }
+            throw new Error('Conversation not found')
         } else if (res.status === 403) {
-            throw { message: 'Not authorized to view this conversation' }
+            throw new Error('Not authorized to view this conversation')
         }
-        throw { message: 'There was a problem with your request' }
+        throw new Error('There was a problem with your request')
     })
 }
 
@@ -50,9 +50,9 @@ export function startConversation(number) {
         if (res.ok) {
             return res.json()
         } else if (res.status === 302) {
-            throw { message: 'Not authorized to create conversations' }
+            throw new Error('Not authorized to create conversations')
         }
-        throw { message: 'There was a problem with your request' }
+        throw new Error('There was a problem with your request')
     })
 
 }

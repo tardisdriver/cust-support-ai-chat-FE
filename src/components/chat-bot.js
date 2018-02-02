@@ -37,7 +37,7 @@ export default class ChatBot extends React.Component {
             (<div className='bot'>
                 <h1>Now chatting with SHRUB</h1>
                 <div id='shrubimg'>
-                    <img id='shrub-mascot' className='hidden' src={shrubbot} />
+                    <img id='shrub-mascot' className='hidden' src={shrubbot} alt='SHRUB Bot' />
                 </div>
                 <div className='hidden tip-box-2'>
                     <h3>TIP:</h3>
