@@ -1,55 +1,66 @@
 #service-check {
-    display: block;
-    border: 2px solid grey;
-    padding: 5px;
-    margin: 15px 20px;
-    text-align: center;
-    border-radius: 4px;
-    font-size: 1.3em;
+  display: block;
+  border: 2px solid grey;
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1.3em;
+  width: 83%;
 }
 
 #svc-text {
-    padding-bottom: 10px;
-    display: block;
+  padding-bottom: 10px;
+  display: block;
 }
 
 ::placeholder {
-    color: rgb(205, 203, 203);
+  color: rgb(205, 203, 203);
 }
 
 #svc-entry {
-    font-size: 1em;
-    border: 1px rgb(74, 74, 74) solid;
-    padding: 5px;
-    margin-bottom: 15px;
+  font-size: 1em;
+  border: 1px rgb(74, 74, 74) solid;
+  padding: 5px;
+  margin-bottom: 15px;
+  width: 50%;
 }
 
 .svc-sub {
-    display: block;
-    clear: both;
-    margin: 0 auto;
-    font-size: 1em;
-    background: #42b3ff;
-    border-radius: 4px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 10px 10px 10px;
-    display: block; 
-    margin: 0 auto;
-    width: 130px;
-    margin-bottom: 30px;
+  display: block;
+  clear: both;
+  margin: 0 auto;
+  font-size: 1em;
+  background: #42b3ff;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+  margin-bottom: 30px;
 }
 
 .tip-box {
-    padding: 10px;
-    text-align: center;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: rgb(208, 235, 246);
+  width: 60%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media only screen and (min-device-width: 800px) {
-    #service-check {
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  #service-check {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

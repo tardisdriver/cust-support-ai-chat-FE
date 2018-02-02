@@ -1,61 +1,62 @@
 .infobox {
-    width: 350px;
-    height: 100px;
-    background-color: #efefef;
-    border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+  width: 100%;
+  max-width: 350px;
+  height: 80%;
+  min-height: 110px;
+  background-color: #efefef;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
 }
 
 .infobox-head {
-    font-size: 1.2em;
-    color: black;
-    padding-top: 5px;
-    padding-bottom:0;
+  font-size: 1.2em;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 0;
 }
 
 .info {
-    display: flex;
-    flex-flow: row wrap;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .infobody {
-    text-align: center;
-    margin-bottom: 2px;
-    padding: 5px;
+  text-align: center;
+  margin-bottom: 2px;
+  padding: 5px;
 }
 
 .go-to-bot {
-    background: #2CACDC;
-    border-radius: 4px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 1.2em;
-    padding: 10px 10px 10px 10px;
-    display: block; 
-    margin: 0 auto;
-    width: 250px;
+  background: #2cacdc;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 1.2em;
+  padding: 10px 10px 10px 10px;
+  display: block;
+  margin: 0 auto;
+  width: 250px;
 }
 
 .about-text {
-    text-align: justify;
-    padding: 25px;
+  text-align: justify;
+  padding: 25px;
 }
 
-
 @media only screen and (min-device-width: 800px) {
-.info {
+  .info {
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
-}
-.about-text {
+  }
+  .about-text {
     max-width: 60%;
-margin-left: auto;
-margin-right: auto;
-}
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
