@@ -47,7 +47,7 @@ export default class ChatBot extends React.Component {
           <h3>TIP:</h3>
           <span>
             SHRUB knows <i>some</i> things about computers, but she's still
-            learning!. Try asking her:
+            learning! Try asking her:
             <ul>
               <li>How to reboot your computer.</li>
               <li>What to do if your mouse isn't working.</li>
