@@ -19,7 +19,7 @@ export function checkServiceNumber(number) {
 
 export function sendMessage(message, number, conversationID) {
   const headers = new Headers({
-    "X-Service-Number": number.toString()
+    "X-Service-Number": number.toString().toUpperCase()
   });
   return fetch(`${HOST}/conversations/${conversationID}`, {
     method: "POST",
