@@ -7,8 +7,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export function checkServiceNumber(number) {
-  const capSvc = number.toUpperCase();
-  return fetch(`${HOST}/customers/${capSvc}`).then(res => {
+  return fetch(`${HOST}/customers/${number}`).then(res => {
     if (res.ok) {
       return res.json();
     } else if (res.status === 404) {
