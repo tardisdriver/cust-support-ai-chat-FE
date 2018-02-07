@@ -7,7 +7,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export function checkServiceNumber(number) {
-  return fetch(`${HOST}/customers/${number}`).then(res => {
+  const capSvc = number.toUpperCase();
+  return fetch(`${HOST}/customers/${capSvc}`).then(res => {
     if (res.ok) {
       return res.json();
     } else if (res.status === 404) {
@@ -19,8 +20,10 @@ export function checkServiceNumber(number) {
 
 export function sendMessage(message, number, conversationID) {
   const headers = new Headers({
-    "X-Service-Number": number.toString().toUpperCase()
+    // "X-Service-Number": number.toString()
+    "X-Service-Number": number.toUpperCase()
   });
+  console.log(headers);
   return fetch(`${HOST}/conversations/${conversationID}`, {
     method: "POST",
     body: message,
