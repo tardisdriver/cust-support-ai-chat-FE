@@ -85,7 +85,7 @@ h1 {
 .response-area {
   display: block;
   position: absolute;
-  height: 100vh;
+  height: 6vh;
   width: 85%;
 }
 
@@ -106,7 +106,7 @@ h1 {
 @media only screen and (min-height: 733px) {
   /* iphone 6+ = 736 */
   .chatbox {
-    height: 72.4vh;
+    height: 74vh;
   }
 }
 
