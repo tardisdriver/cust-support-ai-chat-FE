@@ -14,7 +14,6 @@ export default class ChatBot extends React.Component {
     const node = ReactDOM.findDOMNode(this.messagesEnd);
     if (node != null) {
       node.scrollIntoView({ behavior: "smooth" });
-      console.log("tried to scroll");
     }
   };
 
