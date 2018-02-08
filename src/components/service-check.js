@@ -40,7 +40,7 @@ export default class ServiceCheck extends React.Component {
             For a demo, use the service number <b>654ZYX</b>.{" "}
           </p>
           <p>
-            This number is tied to auser account, and for this demo, you get to
+            This number is tied to a user account, and for this demo, you get to
             be Bob Belcher!
           </p>
         </div>
