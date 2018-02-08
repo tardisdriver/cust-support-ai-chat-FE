@@ -122,9 +122,9 @@ h1 {
   #shrub-mascot {
     float: left;
     margin-top: 1%;
-    width: 80%;
-    height: 80%;
-    margin-left: 15%;
+    width: 75%;
+    height: 75%;
+    margin-left: 25%;
   }
   .chatbox {
     float: right;
@@ -146,5 +146,6 @@ h1 {
     position: absolute;
     left: 4%;
     bottom: 5%;
+    font-size: 0.8em;
   }
 }
