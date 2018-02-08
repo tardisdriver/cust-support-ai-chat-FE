@@ -23,7 +23,6 @@ export function sendMessage(message, number, conversationID) {
     // "X-Service-Number": number.toString()
     "X-Service-Number": number.toUpperCase()
   });
-  console.log(headers);
   return fetch(`${HOST}/conversations/${conversationID}`, {
     method: "POST",
     body: message,
