@@ -12,6 +12,10 @@
   width: 83%;
 }
 
+.service-info {
+  font-size: 0.8em;
+}
+
 #svc-text {
   padding-bottom: 10px;
   display: block;
