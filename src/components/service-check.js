@@ -45,9 +45,9 @@ export default class ServiceCheck extends React.Component {
           </p>
         </div>
         <p className="service-info">
-          Note: Here, SHRUB can identify your client, allowing a check that can
-          do things such as check the client's service contract or even pull up
-          the client's known hardware configuration which SHRUB can use to give
+          Note: Here, SHRUB can identify your client, allowing SHRUB to do
+          things such as check the client's service contract or even pull up the
+          client's known hardware configuration which she can then use to give
           more targeted answers. In this demo, the service number allows SHRUB
           to know the clients name only.
         </p>
