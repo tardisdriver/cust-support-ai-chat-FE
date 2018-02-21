@@ -13,10 +13,13 @@
 }
 
 .service-info {
-  font-size: 0.7em;
-  width: 200px;
+  font-size: 0.75em;
+  width: 80vw;
   padding: 10px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
 #svc-text {
