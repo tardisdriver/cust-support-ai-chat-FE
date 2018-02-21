@@ -13,7 +13,9 @@
 }
 
 .service-info {
-  font-size: 0.6em;
+  font-size: 0.7em;
+  width: 200px;
+  padding: 10px;
 }
 
 #svc-text {
