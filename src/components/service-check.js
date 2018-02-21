@@ -49,7 +49,7 @@ export default class ServiceCheck extends React.Component {
           things such as check the client's service contract or even pull up the
           client's known hardware configuration which she can then use to give
           more targeted answers. In this demo, the service number allows SHRUB
-          to know the clients name only.
+          to know the client's name only.
         </p>
       </div>
     );
