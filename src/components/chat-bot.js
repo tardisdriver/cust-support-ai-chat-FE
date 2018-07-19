@@ -33,30 +33,32 @@ export default class ChatBot extends React.Component {
   render() {
     const content = this.props.messageHistory ? (
       <div className="bot">
-        <h1>Now chatting with SHRUB</h1>
-        <div id="shrubimg">
-          <img
-            id="shrub-mascot"
-            className="hidden"
-            src={shrubbot}
-            alt="SHRUB Bot"
-          />
-        </div>
-        <div className="hidden tip-box-2">
-          <h3>TIP:</h3>
-          <span>
-            SHRUB knows <i>some</i> things about computers, but she's still
-            learning! Try asking her:
-            <ul>
-              <li>How to reboot your computer.</li>
-              <li>What to do if your mouse isn't working.</li>
-              <li>How to print something.</li>
-              <li>How to remedy a locked up computer</li>
-              <li>What to do if your computer is smoking!</li>
-            </ul>
-          </span>
+        <div id="side-container">
+          <div id="shrubimg">
+            <img
+              id="shrub-mascot"
+              className="hidden"
+              src={shrubbot}
+              alt="SHRUB Bot"
+            />
+          </div>
+          <div className="hidden tip-box-2">
+            <h3>TIP:</h3>
+            <span>
+              SHRUB knows <i>some</i> things about computers, but she's still
+              learning! Try asking her:
+              <ul>
+                <li>How to reboot your computer.</li>
+                <li>What to do if your mouse isn't working.</li>
+                <li>How to print something.</li>
+                <li>How to remedy a locked up computer</li>
+                <li>What to do if your computer is smoking!</li>
+              </ul>
+            </span>
+          </div>
         </div>
         <div className="chatbox">
+          <h1>Now chatting with SHRUB</h1>
           {this.props.messageHistory.map((message, index) => {
             const content = message.content;
             const sender = message.sender;
@@ -74,9 +76,8 @@ export default class ChatBot extends React.Component {
               this.messagesEnd = el;
             }}
           />
-        </div>
 
-        <div className="response-area">
+        {/* <div className="response-area">
           <form className="chat-area" onSubmit={e => this.onSubmit(e)}>
             <input
               type="text"
@@ -86,7 +87,7 @@ export default class ChatBot extends React.Component {
             />
             <input type="submit" className="submit" />
           </form>
-        </div>
+        </div> */}
       </div>
     ) : (
       "loading conversation"
