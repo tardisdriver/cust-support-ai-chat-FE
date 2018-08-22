@@ -76,8 +76,8 @@ export default class ChatBot extends React.Component {
               this.messagesEnd = el;
             }}
           />
-
-        {/* <div className="response-area">
+        </div>
+        <div className="response-area">
           <form className="chat-area" onSubmit={e => this.onSubmit(e)}>
             <input
               type="text"
@@ -87,7 +87,7 @@ export default class ChatBot extends React.Component {
             />
             <input type="submit" className="submit" />
           </form>
-        </div> */}
+        </div>
       </div>
     ) : (
       "loading conversation"
