@@ -140,7 +140,7 @@ h1 {
   .hidden {
     display: inline-block;
   }
-  .bot {
+  #bot-area {
     display: flex;
     width: 65rem;
   }
