@@ -164,10 +164,10 @@ h1 {
     font-size: 0.8em;
   }
   .chatbox {
-    float: right;
-    width: 470px;
+    width: 53%;
     height: 55vh;
-    margin-right: 457px;
+    padding-left: 213px;
+    /* margin-right: 457px; */
     border: 1px solid darkgrey;
     border-radius: 4px;
   }
