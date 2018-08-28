@@ -32,7 +32,7 @@ export default class ChatBot extends React.Component {
 
   render() {
     const content = this.props.messageHistory ? (
-      <div className="bot">
+      <div id="bot-area">
         <div id="side-container">
           <div id="shrubimg">
             <img

@@ -142,16 +142,20 @@ h1 {
   }
   .bot {
     display: flex;
+    width: 65rem;
   }
   #side-container {
-    width: 350px;
+    width: 550px;
     height: 550px;
-    margin-right: 90px;
+    /* margin-right: 90px; */
   }
   #shrub-mascot {
     width: 200px;
     height: 245px;
-    margin-left: 115px;
+    /* margin-left: 115px; */
+  }
+  #shrubimg {
+    text-align: center;
   }
   .tip-box-2 {
     width: 300px;
@@ -164,19 +168,20 @@ h1 {
     font-size: 0.8em;
   }
   .chatbox {
-    width: 53%;
-    height: 55vh;
-    padding-left: 213px;
+    width: 55%;
+    height: 80vh;
+    max-height: 555px;
+    /* padding-left: 213px; */
     /* margin-right: 457px; */
     border: 1px solid darkgrey;
     border-radius: 4px;
   }
 
   .chat-field {
-    margin-left: 456px;
-    width: 350px;
+    margin-left: 508px;
+    width: 453px;
   }
   .submit {
-    margin-left: 226px;
+    margin-left: 369px;
   }
 }
