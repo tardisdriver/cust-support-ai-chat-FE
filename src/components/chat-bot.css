@@ -176,12 +176,18 @@ h1 {
     border: 1px solid darkgrey;
     border-radius: 4px;
   }
-
+  .response-area {
+    width: 119%;
+    min-width: 1940px;
+    max-width: 1950px;
+  }
   .chat-field {
     margin-left: 508px;
-    width: 453px;
+    width: 26%;
+    max-width: 440px;
+    min-width: 435px;
   }
-  .submit {
-    margin-left: 369px;
-  }
+  /* .submit {
+    margin-left: 268px;
+  } */
 }
